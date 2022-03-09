@@ -22,35 +22,42 @@ function writeLog(opIdentifier, prevResult, opNumber, newResult) {
 	console.log(logEntries);
 }
 
-function add() {
+function Calculate(type) {
 	const enteredNumber =  getUserInput();
 	const initialResult = presentResult;
-	presentResult = presentResult + enteredNumber;
-	writeResult(initialResult, '+', enteredNumber);
-	writeLog('SUM', initialResult, enteredNumber, presentResult);
+	let mathOperator;
+	if (type === 'ADD'){
+		presentResult += enteredNumber ;
+		mathOperator = '+';
+	}
+	else if(type === 'SUBTRACT'){
+		presentResult -= enteredNumber ;
+		mathOperator = '-';
+	}
+	else if (type === 'MULTIPLY'){
+		presentResult = presentResult*enteredNumber;
+		mathOperator = '*';
+	}
+	else{
+		presentResult = presentResult/enteredNumber;
+		mathOperator = '/';
+	}
 	
+	writeResult(initialResult, mathOperator, enteredNumber);
+	writeLog(type, initialResult, enteredNumber, presentResult)
+}
+function add() {
+	Calculate('ADD');
 }
 
 function subtract() {
-	const enteredNumber =  getUserInput();
-	const initialResult = presentResult;
-	presentResult = presentResult - enteredNumber;
-	writeResult(initialResult, '-', enteredNumber);
-	writeLog('SUBTRACT', initialResult, enteredNumber, presentResult);
+	Calculate('SUBTRACT');
 }
 function multiply() {
-	const enteredNumber =  getUserInput();
-	const initialResult = presentResult;
-	presentResult = presentResult * enteredNumber;
-	writeResult(initialResult, '*', enteredNumber);
-	writeLog('MULTIPLY', initialResult, enteredNumber, presentResult);
+	Calculate('MULTIPLY');
 }
 function divide() {
-	const enteredNumber =  getUserInput();
-	const initialResult = presentResult;
-	presentResult = presentResult / enteredNumber;
-	writeResult(initialResult, '/', enteredNumber);
-	writeLog('DIVIDE', initialResult, enteredNumber, presentResult);
+	Calculate('DIVIDE');
 }
 
 
@@ -58,3 +65,4 @@ addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
+ 

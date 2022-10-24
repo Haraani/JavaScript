@@ -14,6 +14,12 @@ body {
   flex-direction: column;
 }
 
+h3{
+  margin: 1rem;
+  padding: 1rem;
+  border: 2pt solid;
+}
+
 header {
   background: #023d6d;
   color: white;
@@ -27,11 +33,12 @@ header {
 .container{
   justify-content: center;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
   background-color:hsl(0, 0%, 100%);
   width: 50%;
   height: 50%;
   border-radius: 10px;
-  margin-top: 10rem;
+  margin-top: 5rem;
   padding: 5px;
 }
 
@@ -52,9 +59,10 @@ header {
 
 #calculator input {
   font: inherit;
+  flex-direction: column;
   font-size: 3rem;
   border: 2px solid #023d6d;
-  width: 10rem;
+  width: 50%;
   padding: 0.15rem;
   margin: auto;
   display: block;
